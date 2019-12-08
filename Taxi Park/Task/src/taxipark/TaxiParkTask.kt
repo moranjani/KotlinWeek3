@@ -35,8 +35,9 @@ fun TaxiPark.findSmartPassengers(): Set<Passenger> =
 fun TaxiPark.findTheMostFrequentTripDurationPeriod(): IntRange? {
     val maxGroupKey = trips.groupBy { it.duration / 10 }.maxBy { it.value.size }?.key
     if (maxGroupKey == null) return null
-    val rangeStart = maxGroupKey*10
-    return rangeStart..rangeStart+9
+    val start = maxGroupKey * 10
+    val end = start + 9
+    return start..end
 }
 
 /*
